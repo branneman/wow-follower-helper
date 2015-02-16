@@ -1,34 +1,52 @@
 SLASH_FollowerHelper1, SLASH_FollowerHelper2 = '/fh', '/followerhelper'
+
 function SlashCmdList.FollowerHelper(msg)
-  --printFollowers()
+  setFollowers(getFollowers())
   FH_Window:Show();
+end
+
+function setFollowers(text)
+  fontString:SetText(text)
+  FH_Window:SetHeight(getFollowerCount() * 15)
+end
+
+function getFollowers()
+  local followersList = C_Garrison.GetFollowers()
+  local followerString = ''
+  for i = 1, #followersList do
+    local follower = getFollower(followersList[i])
+    if (follower ~= '') then
+      followerString = followerString .. follower .. '|n'
+    end
+  end
+  return followerString
 end
 
 function getFollowerCount()
   local followersList = C_Garrison.GetFollowers()
   local followerCount = 0
   for i = 1, #followersList do
-    if (followersList[i].isCollected) then
+    if (followerIsUsable(followersList[i])) then
       followerCount = followerCount + 1
     end
   end
   return followerCount
 end
 
-function printFollowers()
-  local followersList = C_Garrison.GetFollowers()
-  for i = 1, #followersList do
-    printFollower(followersList[i])
-  end
-end
-
-function printFollower(follower)
-  if (not follower.isCollected or follower.status == GARRISON_FOLLOWER_INACTIVE or follower.status == GARRISON_FOLLOWER_WORKING) then
-    return
+function getFollower(follower)
+  if (not followerIsUsable(follower)) then
+    return ''
   end
   local level = colorize(follower.quality, level(follower))
   local abilities = getAbilityIconString(follower)
-  print(level .. ' - ' .. follower.name .. ' - ' .. abilities)
+  return level .. ' - ' .. follower.name .. ' - ' .. abilities
+end
+
+function followerIsUsable(follower)
+  local collected = follower.isCollected
+  local active    = follower.status ~= GARRISON_FOLLOWER_INACTIVE
+  local working   = follower.status == GARRISON_FOLLOWER_WORKING
+  return collected and active and not working
 end
 
 function getAbilityIconString(follower)

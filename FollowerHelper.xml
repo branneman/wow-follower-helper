@@ -1,42 +1,62 @@
-<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
-	<Script file="FollowerHelper.lua" />
-	<Frame name="FH_Window" parent="UIParent" toplevel="true" hidden="true" movable="true" enableMouse="true">
-    <Size>
-			<AbsDimension x="400" y="400" />
-		</Size>
-    <Anchors>
-      <Anchor point="CENTER"/>
-    </Anchors>
-		<Scripts>
-			<OnLoad>FH_Window:Hide()</OnLoad>
-			<OnMouseUp>self:StopMovingOrSizing()</OnMouseUp>
-			<OnMouseDown>self:StartMoving()</OnMouseDown>
-		</Scripts>
-    <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
-			<BackgroundInsets>
-				<AbsInset left="11" right="12" top="12" bottom="11" />
-			</BackgroundInsets>
-			<TileSize>
-				<AbsValue val="32" />
-			</TileSize>
-			<EdgeSize>
-				<AbsValue val="32" />
-			</EdgeSize>
-		</Backdrop>
-    <Frames>
-      <Button name="closeButton" inherits="UIPanelButtonTemplate" text="×">
-				<Size>
-					<AbsDimension x="20" y="18" />
-				</Size>
-				<Anchors>
-					<Anchor point="TOPRIGHT">
-						<Offset x="-5" y="-5" />
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnClick>FH_Window:Hide()</OnClick>
-				</Scripts>
-			</Button>
-    </Frames>
-	</Frame>
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+    <Script file="FollowerHelper.lua"/>
+    <Frame name="FH_Window" parent="UIParent" toplevel="true" hidden="true" movable="true" enableMouse="true">
+        <Size>
+            <AbsDimension x="300" y="300"/>
+        </Size>
+        <Anchors>
+            <Anchor point="CENTER"/>
+        </Anchors>
+        <Scripts>
+            <OnLoad>FH_Window:Hide()</OnLoad>
+            <OnMouseUp>self:StopMovingOrSizing()</OnMouseUp>
+            <OnMouseDown>self:StartMoving()</OnMouseDown>
+        </Scripts>
+        <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background"
+                  edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+            <BackgroundInsets>
+                <AbsInset left="11" right="12" top="12" bottom="11"/>
+            </BackgroundInsets>
+            <TileSize>
+                <AbsValue val="32"/>
+            </TileSize>
+            <EdgeSize>
+                <AbsValue val="32"/>
+            </EdgeSize>
+        </Backdrop>
+        <Frames>
+            <Button name="closeButton" inherits="UIPanelCloseButton">
+                <Size>
+                    <AbsDimension x="30" y="30"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPRIGHT">
+                        <Offset x="-2" y="-2"/>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnClick>FH_Window:Hide()</OnClick>
+                </Scripts>
+            </Button>
+        </Frames>
+        <Layers>
+            <Layer level="OVERLAY">
+                <FontString name="fontString" inherits="GameFontNormal" text="Error while loading followers."
+                            justifyV="TOP" justifyH="LEFT">
+                    <Size>
+                        <AbsDimension x="300" y="300"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOPLEFT">
+                            <Offset x="20" y="-20"/>
+                        </Anchor>
+                    </Anchors>
+                    <FontHeight>
+                        <AbsValue val="20"/>
+                    </FontHeight>
+                </FontString>
+            </Layer>
+        </Layers>
+    </Frame>
 </Ui>
