@@ -1,6 +1,0 @@
-## Interface: 60000
-## Title: follower-helper
-## Author: Bran van der Meer
-## Version: 0.1
-
-main.lua

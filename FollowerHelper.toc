@@ -1,0 +1,9 @@
+## Title: Follower Helper
+## Notes: @todo
+##
+## Interface: 60000
+##
+## Author: Bran van der Meer
+## Version: 0.1
+
+FollowerHelper.xml

@@ -1,11 +1,11 @@
 SLASH_FollowerHelper1, SLASH_FollowerHelper2 = '/fh', '/followerhelper'
 function SlashCmdList.FollowerHelper(msg)
-  printFollowers()
+  --printFollowers()
+  FH_Window:Show();
 end
 
-local followersList = C_Garrison.GetFollowers()
-
 function getFollowerCount()
+  local followersList = C_Garrison.GetFollowers()
   local followerCount = 0
   for i = 1, #followersList do
     if (followersList[i].isCollected) then
@@ -16,6 +16,7 @@ function getFollowerCount()
 end
 
 function printFollowers()
+  local followersList = C_Garrison.GetFollowers()
   for i = 1, #followersList do
     printFollower(followersList[i])
   end
