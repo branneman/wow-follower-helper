@@ -1,9 +1,8 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
-    <Script file="FollowerHelper.lua"/>
     <Frame name="FH_Window" parent="UIParent" toplevel="true" hidden="true" movable="true" enableMouse="true">
         <Size>
-            <AbsDimension x="300" y="300"/>
+            <AbsDimension x="275" y="300"/>
         </Size>
         <Anchors>
             <Anchor point="CENTER"/>
@@ -42,16 +41,35 @@
         </Frames>
         <Layers>
             <Layer level="OVERLAY">
-                <FontString name="fontString" inherits="GameFontNormal" text="Error while loading followers."
+                <FontString name="columnAbilities" inherits="GameFontNormal"
                             justifyV="TOP" justifyH="LEFT">
+                    <Size>
+                        <AbsDimension x="40"/>
+                    </Size>
                     <Anchors>
                         <Anchor point="TOPLEFT">
                             <Offset x="20" y="-20"/>
                         </Anchor>
                     </Anchors>
-                    <FontHeight>
-                        <AbsValue val="20"/>
-                    </FontHeight>
+                </FontString>
+                <FontString name="columnLevels" inherits="GameFontNormal"
+                            justifyV="TOP" justifyH="LEFT">
+                    <Size>
+                        <AbsDimension x="40"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOPLEFT">
+                            <Offset x="60" y="-20"/>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+                <FontString name="columnNames" inherits="GameFontNormal"
+                            justifyV="TOP" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="TOPLEFT">
+                            <Offset x="98" y="-20"/>
+                        </Anchor>
+                    </Anchors>
                 </FontString>
             </Layer>
         </Layers>

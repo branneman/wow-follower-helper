@@ -1,9 +1,18 @@
-## Title: Follower Helper
-## Notes: @todo
 ##
-## Interface: 60000
+## Title: Follower Helper
+## Notes: Gives an overview of all your followers
 ##
 ## Author: Bran van der Meer
 ## Version: 0.1
+## Interface: 60000
+##
+
+## Util/Debug.lua
+Util/Formatting.lua
+Util/Frame.lua
+Util/Functional.lua
+
+Lib/Follower.lua
 
 FollowerHelper.xml
+FollowerHelper.lua
