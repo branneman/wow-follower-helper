@@ -44,9 +44,6 @@
             <Layer level="OVERLAY">
                 <FontString name="fontString" inherits="GameFontNormal" text="Error while loading followers."
                             justifyV="TOP" justifyH="LEFT">
-                    <Size>
-                        <AbsDimension x="300"/>
-                    </Size>
                     <Anchors>
                         <Anchor point="TOPLEFT">
                             <Offset x="20" y="-20"/>
