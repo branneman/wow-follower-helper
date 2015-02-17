@@ -2,12 +2,18 @@ SLASH_FollowerHelper1, SLASH_FollowerHelper2 = '/fh', '/followerhelper'
 
 function SlashCmdList.FollowerHelper(msg)
   setFollowers(getFollowers())
+  scaleFrameToText(FH_Window, fontString, 20)
   FH_Window:Show();
+end
+
+function scaleFrameToText(frame, text, margin)
+  text:SetPoint('TOPLEFT', frame, 'TOPLEFT', margin, -margin)
+  text:SetWidth(frame:GetRight() - frame:GetLeft() - margin * 2)
+  frame:SetHeight(text:GetHeight() + margin * 2)
 end
 
 function setFollowers(text)
   fontString:SetText(text)
-  FH_Window:SetHeight(getFollowerCount() * 15)
 end
 
 function getFollowers()

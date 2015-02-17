@@ -45,7 +45,7 @@
                 <FontString name="fontString" inherits="GameFontNormal" text="Error while loading followers."
                             justifyV="TOP" justifyH="LEFT">
                     <Size>
-                        <AbsDimension x="300" y="300"/>
+                        <AbsDimension x="300"/>
                     </Size>
                     <Anchors>
                         <Anchor point="TOPLEFT">
