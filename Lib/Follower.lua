@@ -1,6 +1,4 @@
-function sortFollowers(follower1, follower2)
-
-    -- Handle nil values
+function sortFollowers(func, follower1, follower2)
     if (follower1 == nil and follower2 == nil) then
         return false
     elseif (follower1 == nil) then
@@ -8,14 +6,20 @@ function sortFollowers(follower1, follower2)
     elseif (follower2 == nil) then
         return false
     end
+    return func(follower1, follower2)
+end
 
-    -- Sorting: lvl > ilvl > quality > name
+function sortFollowersByLevel(follower1, follower2)
     if (follower1.level ~= follower2.level) then
         return follower1.level > follower2.level
     end
     if (follower1.iLevel ~= follower2.iLevel) then
         return follower1.iLevel > follower2.iLevel
     end
+    return sortFollowersByQuality(follower1, follower2)
+end
+
+function sortFollowersByQuality(follower1, follower2)
     if (follower1.quality ~= follower2.quality) then
         return follower1.quality > follower2.quality
     end

@@ -10,6 +10,12 @@ function fn(method)
     end
 end
 
+function curry(func, arg)
+    return function(...)
+        return func(arg, ...)
+    end
+end
+
 function head(tbl)
     return tbl[1]
 end

@@ -7,7 +7,7 @@ function SlashCmdList.FollowerHelper(msg)
 
     -- Filter out ususable followers and sort
     followers = filter(followers, isUsableFollower)
-    followers = sort(followers, sortFollowers)
+    followers = sort(followers, curry(sortFollowers, sortFollowersByQuality))
 
     -- Decorate followers with stringify methods
     followers = map(followers, abilityDecorator)
