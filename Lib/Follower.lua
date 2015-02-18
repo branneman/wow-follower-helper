@@ -1,3 +1,27 @@
+function sortFollowers(follower1, follower2)
+
+    -- Handle nil values
+    if (follower1 == nil and follower2 == nil) then
+        return false
+    elseif (follower1 == nil) then
+        return true
+    elseif (follower2 == nil) then
+        return false
+    end
+
+    -- Sorting: lvl > ilvl > quality > name
+    if (follower1.level ~= follower2.level) then
+        return follower1.level > follower2.level
+    end
+    if (follower1.iLevel ~= follower2.iLevel) then
+        return follower1.iLevel > follower2.iLevel
+    end
+    if (follower1.quality ~= follower2.quality) then
+        return follower1.quality > follower2.quality
+    end
+    return strcmputf8i(follower1.name, follower2.name) < 0;
+end
+
 function abilityDecorator(follower)
     follower.stringifyAbilities = function()
         return getAbilityIcons(follower.followerID)

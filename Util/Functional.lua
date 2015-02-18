@@ -65,3 +65,8 @@ function fif(condition, if_true, if_false)
         return if_false
     end
 end
+
+function sort(tbl, func)
+    table.sort(tbl, func)
+    return tbl
+end

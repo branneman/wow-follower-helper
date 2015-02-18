@@ -5,8 +5,9 @@ function SlashCmdList.FollowerHelper(msg)
   -- Grab all followers
   local followers = C_Garrison.GetFollowers()
 
-  -- Filter out ususable followers
+  -- Filter out ususable followers and sort
   followers = filter(followers, isUsableFollower)
+  followers = sort(followers, sortFollowers)
 
   -- Decorate followers with stringify methods
   followers = map(followers, abilityDecorator)
