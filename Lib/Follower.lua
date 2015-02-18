@@ -16,12 +16,18 @@ function sortFollowersByLevel(follower1, follower2)
     if (follower1.iLevel ~= follower2.iLevel) then
         return follower1.iLevel > follower2.iLevel
     end
-    return sortFollowersByQuality(follower1, follower2)
+    if (follower1.quality ~= follower2.quality) then
+        return follower1.quality > follower2.quality
+    end
+    return strcmputf8i(follower1.name, follower2.name) < 0;
 end
 
 function sortFollowersByQuality(follower1, follower2)
     if (follower1.quality ~= follower2.quality) then
         return follower1.quality > follower2.quality
+    end
+    if (follower1.iLevel ~= follower2.iLevel) then
+        return follower1.iLevel > follower2.iLevel
     end
     return strcmputf8i(follower1.name, follower2.name) < 0;
 end
